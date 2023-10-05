@@ -1,9 +1,5 @@
 import { useForm } from "react-hook-form";
-import Button from "../../ui/Button";
-import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
-import Input from "../../ui/Input";
-
 import { useUpdateUser } from "./useUpdateUser";
 
 function UpdatePasswordForm() {
@@ -17,12 +13,16 @@ function UpdatePasswordForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="overflow-hidden border border-solid border-gray-200 bg-gray-50 px-10 py-16 text-[1.4rem]"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <FormRow
         label="New Password (min 8 chars)"
         error={errors?.password?.message}
       >
-        <Input
+        <input
+          className="rounded-md border border-solid border-gray-300 bg-gray-50 px-5 py-3 shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
           type="password"
           id="password"
           autoComplete="current-password"
@@ -41,7 +41,8 @@ function UpdatePasswordForm() {
         label="Confirm password"
         error={errors?.passwordConfirm?.message}
       >
-        <Input
+        <input
+          className="rounded-md border border-solid border-gray-300 bg-gray-50 px-5 py-3 shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
           type="password"
           autoComplete="new-password"
           id="passwordConfirm"
@@ -54,12 +55,21 @@ function UpdatePasswordForm() {
         />
       </FormRow>
       <FormRow>
-        <Button onClick={reset} type="reset" variation="secondary">
+        <button
+          onClick={reset}
+          type="reset"
+          className="rounded-lg border border-solid border-gray-200 bg-gray-50 px-5 py-5 text-[1.4rem] font-[500] text-gray-600 hover:bg-gray-100"
+        >
           Cancel
-        </Button>
-        <Button disabled={isUpdating}>Update password</Button>
+        </button>
+        <button
+          className=" rounded-lg bg-indigo-600 px-5 py-5 text-[1.4rem] font-[500] text-indigo-50 hover:bg-indigo-700"
+          disabled={isUpdating}
+        >
+          Update password
+        </button>
       </FormRow>
-    </Form>
+    </form>
   );
 }
 

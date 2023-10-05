@@ -1,16 +1,10 @@
 import { useState } from "react";
-
-import Button from "../../ui/Button";
-import FileInput from "../../ui/FileInput";
-import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
-import Input from "../../ui/Input";
 
 import { useUser } from "./useUser";
 import { useUpdateUser } from "./useUpdateUser";
 
 function UpdateUserDataForm() {
-  // We don't need the loading state, and can immediately use the user data, because we know that it has already been loaded at this point
   const {
     user: {
       email,
@@ -33,7 +27,7 @@ function UpdateUserDataForm() {
           setAvatar(null);
           e.target.reset();
         },
-      }
+      },
     );
   }
 
@@ -43,12 +37,20 @@ function UpdateUserDataForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <form
+      className="overflow-hidden border border-solid border-gray-200 bg-gray-50 px-16 py-10 text-[1.4rem]"
+      onSubmit={handleSubmit}
+    >
       <FormRow label="Email address">
-        <Input value={email} disabled />
+        <input
+          value={email}
+          disabled
+          className="rounded-md border border-solid border-gray-300 bg-gray-50 px-5 py-3 shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+        />
       </FormRow>
       <FormRow label="Full name">
-        <Input
+        <input
+          className="rounded-md border border-solid border-gray-300 bg-gray-50 px-5 py-3 shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
           type="text"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
@@ -57,25 +59,29 @@ function UpdateUserDataForm() {
         />
       </FormRow>
       <FormRow label="Avatar image">
-        <FileInput
+        <input
           id="avatar"
           accept="image/*"
           onChange={(e) => setAvatar(e.target.files[0])}
           disabled={isUpdating}
+          type="file"
+          className="rounded-md text-[1.4rem]  [&::file-selector-button]:mr-5 [&::file-selector-button]:cursor-pointer [&::file-selector-button]:rounded [&::file-selector-button]:border-none [&::file-selector-button]:bg-indigo-600 [&::file-selector-button]:px-3 [&::file-selector-button]:py-5 [&::file-selector-button]:font-[500] [&::file-selector-button]:text-indigo-50 [&::file-selector-button]:transition-colors [&::file-selector-button]:duration-200  [&::file-selector-button]:hover:bg-indigo-700 "
         />
       </FormRow>
       <FormRow>
-        <Button
+        <button
           type="reset"
-          variation="secondary"
+          className="rounded-lg border border-solid border-gray-200 bg-gray-50 px-5 py-5 text-[1.4rem] font-[500] text-gray-600 hover:bg-gray-100"
           disabled={isUpdating}
           onClick={handleCancel}
         >
           Cancel
-        </Button>
-        <Button>Update account</Button>
+        </button>
+        <button className=" rounded-lg bg-indigo-600 px-5 py-5 text-[1.4rem] font-[500] text-indigo-50 hover:bg-indigo-700">
+          Update account
+        </button>
       </FormRow>
-    </Form>
+    </form>
   );
 }
 
