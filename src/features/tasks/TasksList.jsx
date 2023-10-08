@@ -1,20 +1,19 @@
 import Loader from "../../ui/Loader";
+import { useUser } from "../authentication/useUser";
+import Task from "./Task";
 import { useTasks } from "./useTasks";
 
 function TasksList() {
-  const { isLoading, cabins } = useTasks();
+  const { user } = useUser();
+  const { isLoading, tasks } = useTasks(user.id);
 
   if (isLoading) return <Loader />;
+
   return (
-    <ul>
-      <li className=" w-1/4  bg-indigo-400 p-8">
-        <h1>This is the fisrt task</h1>
-        <p>Time remaining</p>
-        <progress max={50} value={12} className="block" />
-        <button>Delete</button>
-        <button>Edit</button>
-        <button>Done</button>
-      </li>
+    <ul className="flex flex-wrap gap-8">
+      {tasks.map((task) => (
+        <Task key={task.id} task={task} />
+      ))}
     </ul>
   );
 }

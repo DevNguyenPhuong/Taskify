@@ -1,9 +1,12 @@
 import supabase from "./supabase";
 
-export async function getTasks() {
+export async function getTasks({ userId }) {
   // const { data, error } = await supabase.from("cabins").select("*");
 
-  const { data, error } = await supabase.from("Task").select("*");
+  const { data, error } = await supabase
+    .from("Task")
+    .select("*")
+    .eq("user", userId);
 
   if (error) {
     console.log(error.message);
