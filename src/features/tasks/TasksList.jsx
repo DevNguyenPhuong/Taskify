@@ -1,4 +1,10 @@
+import Loader from "../../ui/Loader";
+import { useTasks } from "./useTasks";
+
 function TasksList() {
+  const { isLoading, cabins } = useTasks();
+
+  if (isLoading) return <Loader />;
   return (
     <ul>
       <li className=" w-1/4  bg-indigo-400 p-8">
