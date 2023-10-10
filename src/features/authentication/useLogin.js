@@ -12,7 +12,7 @@ export function useLogin() {
     onSuccess: (user) => {
       queryClient.setQueryData(["user"], user.user);
       toast.success(`Welcome ${user.user.email.split("@")[0]}`);
-      navigate("/dashboard", { replace: true });
+      navigate("/tasks", { replace: true });
     },
     onError: (err) => {
       console.log("ERROR", err);

@@ -11,6 +11,7 @@ import Tasks from "./pages/Tasks";
 import User from "./pages/User";
 import Settings from "./pages/Settings";
 import Dashboard from "./pages/Dashboard";
+import Signup from "./pages/Signup";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -42,6 +43,7 @@ function App() {
           </Route>
 
           <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

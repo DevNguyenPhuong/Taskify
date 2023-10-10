@@ -2,12 +2,14 @@ import { useState } from "react";
 import FormRowVertical from "../../ui/FormRowVertical";
 import { useLogin } from "./useLogin";
 import SpinnerMini from "../../ui/SpinnerMini";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function LoginForm() {
   const [email, setEmail] = useState("ayesha@ayesha.com");
   const [password, setPassword] = useState("ayesha1234");
 
   const { login, isLoading } = useLogin();
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -21,6 +23,11 @@ function LoginForm() {
         },
       },
     );
+  }
+
+  function handleSinup(e) {
+    e.preventDefault();
+    navigate("/signup");
   }
 
   return (
@@ -56,6 +63,15 @@ function LoginForm() {
           disabled={isLoading}
         >
           {!isLoading ? "Login" : <SpinnerMini />}
+        </button>
+      </FormRowVertical>
+      <FormRowVertical>
+        <button
+          className="flex flex-col items-center bg-indigo-100 px-10 py-5 text-[1.6rem] font-medium text-indigo-700 hover:bg-indigo-200"
+          disabled={isLoading}
+          onClick={handleSinup}
+        >
+          Sign up
         </button>
       </FormRowVertical>
     </form>
