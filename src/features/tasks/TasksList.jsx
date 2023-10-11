@@ -1,5 +1,6 @@
 import Loader from "../../ui/Loader";
 import { useUser } from "../authentication/useUser";
+import AddTask from "./AddTask";
 import Task from "./Task";
 import { useTasks } from "./useTasks";
 
@@ -14,6 +15,8 @@ function TasksList() {
       {tasks.map((task) => (
         <Task key={task.id} task={task} />
       ))}
+
+      <AddTask />
     </ul>
   );
 }

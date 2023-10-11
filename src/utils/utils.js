@@ -1,17 +1,8 @@
-import { differenceInSeconds, formatDuration } from "date-fns";
+import { format, parseISO } from "date-fns";
 
-export function timeLeft(created_at, duration) {
-  let givenTime = new Date(created_at);
-  givenTime.setMinutes(givenTime.getMinutes() + duration);
-  let currentTime = new Date();
+export function formatDate(date) {
+  const newDate = parseISO(date);
+  const formattedDate = format(newDate, "yyyy-MM-dd HH:mm:ss");
 
-  let diffInSeconds = differenceInSeconds(currentTime, givenTime);
-
-  let durationx = {
-    hours: Math.floor(diffInSeconds / 3600),
-    minutes: Math.floor((diffInSeconds % 3600) / 60),
-    seconds: diffInSeconds % 60,
-  };
-
-  return formatDuration(durationx);
+  return formattedDate;
 }

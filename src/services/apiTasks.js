@@ -15,3 +15,17 @@ export async function getTasks({ userId }) {
 
   return data;
 }
+
+export async function CreateTask(newTask) {
+  let { data, error } = await supabase
+    .from("Task")
+    .insert([{ ...newTask }])
+    .select();
+
+  if (error) {
+    console.log(error.message);
+    throw new Error("Task could not be created");
+  }
+
+  return data;
+}

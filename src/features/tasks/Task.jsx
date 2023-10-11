@@ -1,4 +1,4 @@
-import { timeLeft } from "../../utils/utils";
+import { formatDate } from "../../utils/utils";
 
 function Task({ task }) {
   const { task: taskName, priority, created_at, duration } = task;
@@ -18,7 +18,7 @@ function Task({ task }) {
       <div className="p-8">
         <h1 className="font-bold">{taskName}</h1>
         <p>{priority}</p>
-        <p>{timeLeft(created_at, duration)}</p>
+        <p>{formatDate(created_at)}</p>
         {/* <progress max={50} value={12} className="block" /> */}
       </div>
 
