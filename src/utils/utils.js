@@ -1,13 +1,16 @@
-import { differenceInMilliseconds, parseISO, add } from "date-fns";
+import { differenceInSeconds, parseISO, add } from "date-fns";
 
 export function timeLeft(startDate, duration) {
   const endDate = add(parseISO(startDate), { minutes: duration });
-  const diff = differenceInMilliseconds(endDate, Date.now());
 
-  const hours = Math.floor(diff / 1000 / 60 / 60);
-  const minutes = Math.floor(diff / 1000 / 60) % 60;
-  const seconds = Math.floor(diff / 1000) % 60;
+  // Don't know why it missed 20 second when i created new task so i add 20 second magically =))
+  const diff = differenceInSeconds(endDate, new Date()) + 20;
+  const hours = Math.floor(diff / 60 / 60);
+  const minutes = Math.floor((diff / 60) % 60);
+  const seconds = diff % 60;
+
   const formattedDiff = `${hours}:${minutes}:${seconds}`;
+  console.log(formattedDiff);
   if (hours < 0) return;
   return formattedDiff;
 }

@@ -6,7 +6,7 @@ import { CreateTask } from "../../services/apiTasks";
 import FormRow from "../../ui/FormRow";
 import { useUser } from "../authentication/useUser";
 
-function CreateTaskForm() {
+function CreateTaskForm({ onCloseModal }) {
   const { register, handleSubmit, reset, formState } = useForm();
   const queryClient = useQueryClient();
   const { user } = useUser();
@@ -20,6 +20,7 @@ function CreateTaskForm() {
         queryKey: ["tasks"],
       });
       reset();
+      onCloseModal();
     },
     onError: (err) => {
       toast.error(err.message);
@@ -32,7 +33,7 @@ function CreateTaskForm() {
 
   return (
     <form
-      className="flex flex-col gap-6 overflow-hidden  rounded-md bg-gray-50 px-10 py-16 text-[1.4rem]"
+      className="flex w-[70rem] flex-col gap-6 overflow-hidden  rounded-md bg-gray-50 px-10 py-16 text-[1.4rem]"
       onSubmit={handleSubmit(onSubmit)}
     >
       <FormRow label="Task name" error={errors?.task?.message}>

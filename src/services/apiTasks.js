@@ -29,3 +29,12 @@ export async function CreateTask(newTask) {
 
   return data;
 }
+
+export async function deleteTask(id) {
+  let { error } = await supabase.from("Task").delete().eq("id", id);
+
+  if (error) {
+    console.log(error.message);
+    throw new Error("Task could not be deleted");
+  }
+}
