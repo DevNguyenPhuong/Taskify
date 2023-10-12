@@ -27,13 +27,12 @@ function CreateTaskForm() {
   });
 
   function onSubmit(data) {
-    console.log(data);
     mutate({ ...data, user: user.id });
   }
 
   return (
     <form
-      className="flex flex-col gap-6 overflow-hidden rounded-md  bg-gray-50 px-10 py-16 text-[1.4rem]"
+      className="flex flex-col gap-6 overflow-hidden  rounded-md bg-gray-50 px-10 py-16 text-[1.4rem]"
       onSubmit={handleSubmit(onSubmit)}
     >
       <FormRow label="Task name" error={errors?.task?.message}>
