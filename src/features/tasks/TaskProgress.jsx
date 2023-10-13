@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { timeLeft } from "../../utils/utils";
 
-function TaskProgress({ created_at, duration }) {
-  const timeLeftTask = timeLeft(created_at, duration);
+function TaskProgress({ timeLeftTask, duration, created_at }) {
+  timeLeftTask = timeLeft(created_at, duration);
   const time = timeLeftTask?.split(":");
   const [seconds, setSeconds] = useState(0);
 
@@ -14,11 +14,14 @@ function TaskProgress({ created_at, duration }) {
     return () => clearInterval(id);
   }, []);
 
+  if (!timeLeftTask)
+    return (
+      <p className="text-center font-bold uppercase text-red-500">Time out</p>
+    );
+
   return (
     <div className="px-4 pt-4">
-      <p className="text-lg font-semibold uppercase">{`${
-        timeLeftTask ? timeLeftTask : "time out"
-      }`}</p>
+      <p className="text-lg font-semibold uppercase">{timeLeftTask}</p>
       <progress
         max={duration * 60}
         value={timeLeftTask ? time[0] * 3600 + time[1] * 60 + time[2] : 0}
