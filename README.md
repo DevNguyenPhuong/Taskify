@@ -30,5 +30,5 @@ Xem tài liệu về React-query, React-Router, React về TailwindCSS và Supab
 </div>
 
 <h5 style="color:red; margin-top:50px">
-Hiện tại thì chỉ có chức năng đăng nhập, Sẽ update về sau
+Hiện tại thì chỉ có chức năng đăng nhập, đăng kí tài khoản, các mỗi user có thể thêm, xoá task của mình, có thể update ảnh đại diện, tên của user. Sẽ update về sau
 </h5>

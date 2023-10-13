@@ -88,8 +88,6 @@ function SignupForm() {
       </FormRowVertical>
 
       <FormRowVertical>
-        {/* type is an HTML attribute! */}
-
         <button
           variation="secondary"
           type="reset"
