@@ -58,11 +58,11 @@ function CreateTaskForm({ onCloseModal }) {
             required: "This field is required",
             min: {
               value: 1,
-              message: "Duration should be at least 1 minutes",
+              message: "Duration at least 1 minutes",
             },
             max: {
               value: 1440,
-              message: "Duration should be at most 24 hours",
+              message: "Duration at most 24 hours",
             },
           })}
         />
