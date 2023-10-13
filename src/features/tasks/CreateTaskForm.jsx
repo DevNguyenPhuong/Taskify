@@ -48,7 +48,7 @@ function CreateTaskForm({ onCloseModal }) {
         />
       </FormRow>
 
-      <FormRow label="Duration" error={errors?.duration?.message}>
+      <FormRow label="Duration (minutes)" error={errors?.duration?.message}>
         <input
           className="rounded-md border border-solid border-gray-300 bg-gray-50 px-5 py-3 shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
           type="number"
@@ -58,18 +58,21 @@ function CreateTaskForm({ onCloseModal }) {
             required: "This field is required",
             min: {
               value: 1,
-              message: "Duration should be at least 1",
+              message: "Duration should be at least 1 minutes",
+            },
+            max: {
+              value: 1440,
+              message: "Duration should be at most 24 hours",
             },
           })}
         />
       </FormRow>
 
       <FormRow label="Priority" error={errors?.priority?.message}>
-        <input
+        <select
           className="rounded-md border border-solid border-gray-300 bg-gray-50 px-5 py-3 shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
-          type="text"
-          id="priority"
           disabled={isCreating}
+          id="priority"
           {...register("priority", {
             required: "This field is required",
             min: {
@@ -77,7 +80,11 @@ function CreateTaskForm({ onCloseModal }) {
               message: "Priority should be at least 1",
             },
           })}
-        />
+        >
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
       </FormRow>
 
       <FormRow>
