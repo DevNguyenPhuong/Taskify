@@ -1,6 +1,7 @@
 import Loader from "../../ui/Loader";
 import { useUser } from "../authentication/useUser";
 import AddTask from "./AddTask";
+import DeleteAll from "./DeleteAll";
 import Task from "./Task";
 import { useTasks } from "./useTasks";
 
@@ -12,11 +13,14 @@ function TasksList() {
 
   return (
     <>
+      {tasks.length !== 0 && <DeleteAll />}
+
       {tasks.length === 0 ? (
         <>
           <h3 className="mt-5 text-4xl font-semibold uppercase text-indigo-500">
             Start your day now
           </h3>
+
           <AddTask />
         </>
       ) : (

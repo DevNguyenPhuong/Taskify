@@ -1,10 +1,7 @@
 import { NavLink } from "react-router-dom";
-
 import {
   HiOutlineUser,
   HiOutlineClipboardDocumentCheck,
-  HiOutlineHomeModern,
-  HiOutlineCog8Tooth,
 } from "react-icons/hi2";
 
 function MainNav() {
@@ -22,20 +19,6 @@ function MainNav() {
           <NavLink className="NavLink" to="/user">
             <HiOutlineUser />
             <span>User</span>
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink className="NavLink" to="/dashboard">
-            <HiOutlineHomeModern />
-            <span>Dashboard</span>
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink className="NavLink" to="/settings">
-            <HiOutlineCog8Tooth />
-            <span>Settings</span>
           </NavLink>
         </li>
       </ul>

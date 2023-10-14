@@ -10,7 +10,6 @@ export function timeLeft(startDate, duration) {
   const seconds = diff % 60;
 
   const formattedDiff = `${hours}:${minutes}:${seconds}`;
-  console.log(formattedDiff);
   if (hours < 0) return;
   return formattedDiff;
 }

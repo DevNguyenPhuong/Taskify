@@ -38,3 +38,12 @@ export async function deleteTask(id) {
     throw new Error("Task could not be deleted");
   }
 }
+
+export async function deleteTaskAll() {
+  let { error } = await supabase.from("Task").delete().neq("id", 0);
+
+  if (error) {
+    console.log(error.message);
+    throw new Error("Tasks could not be deleted");
+  }
+}

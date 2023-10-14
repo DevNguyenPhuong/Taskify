@@ -1,16 +1,14 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-
-import Login from "./pages/Login";
 import { Toaster } from "react-hot-toast";
+
 import AppLayout from "./ui/AppLayout";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import PageNotFound from "./pages/PageNotFound";
 import Tasks from "./pages/Tasks";
 import User from "./pages/User";
-import Settings from "./pages/Settings";
-import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
 const queryClient = new QueryClient({
@@ -35,11 +33,8 @@ function App() {
             }
           >
             <Route index element={<Navigate replace to="tasks" />} />
-
             <Route path="tasks" element={<Tasks />} />
             <Route path="user" element={<User />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="settings" element={<Settings />} />
           </Route>
 
           <Route path="login" element={<Login />} />

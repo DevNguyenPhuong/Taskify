@@ -28,7 +28,10 @@ function CreateTaskForm({ onCloseModal }) {
   });
 
   function onSubmit(data) {
-    mutate({ ...data, user: user.id });
+    mutate({
+      ...data,
+      user: user.id,
+    });
   }
 
   return (
