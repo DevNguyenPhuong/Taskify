@@ -35,17 +35,13 @@ function Task({ task }) {
         <p className="text-center font-bold uppercase text-red-500">time out</p>
       )}
 
-      <div className="mt-auto flex justify-between px-[8.4rem] py-4">
+      <div className="mt-auto flex justify-center px-[8.4rem] py-4">
         <button
           disabled={isDeleting}
           className="rounded-full p-2 hover:bg-red-200 [&_svg]:text-4xl [&_svg]:text-red-700"
           onClick={() => deleteTask(id)}
         >
           <HiOutlineTrash />
-        </button>
-
-        <button className="rounded-full p-2 hover:bg-green-200 [&_svg]:text-4xl [&_svg]:text-green-700">
-          <HiCheck />
         </button>
       </div>
     </li>
