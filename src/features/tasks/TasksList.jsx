@@ -55,7 +55,7 @@ function TasksList() {
           <AddTask />
         </>
       ) : (
-        <ul className="flex flex-wrap gap-8">
+        <ul className=" flex flex-wrap items-center gap-8">
           {filteredTasks.map((task) => (
             <Task key={task.id} task={task} />
           ))}

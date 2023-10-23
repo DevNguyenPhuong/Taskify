@@ -90,6 +90,22 @@ function CreateTaskForm({ onCloseModal }) {
         </select>
       </FormRow>
 
+      <FormRow label="Description" error={errors?.description?.message}>
+        <textarea
+          className="h-[10rem] w-[20rem] rounded-md border border-solid border-gray-300 bg-gray-50 px-5 py-3 shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+          disabled={isCreating}
+          id="description"
+          maxLength={150}
+          {...register("description", {
+            required: "This field is required",
+            min: {
+              value: 1,
+              message: "description should be at least 1",
+            },
+          })}
+        ></textarea>
+      </FormRow>
+
       <FormRow>
         <button
           variation="secondary"

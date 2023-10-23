@@ -1,3 +1,4 @@
+import { endOfDay, format } from "date-fns";
 import supabase from "./supabase";
 
 export async function getTasks({ userId }) {
@@ -46,4 +47,22 @@ export async function deleteTaskAll() {
     console.log(error.message);
     throw new Error("Tasks could not be deleted");
   }
+}
+
+export async function updateTask(id) {
+  const { data, error } = await supabase
+    .from("Task")
+    .update({
+      start_at: format(new Date(), "yyyy-MM-dd'T'HH:mm:ssXX"),
+      status: "in progress",
+    })
+    .eq("id", id)
+    .select();
+
+  if (error) {
+    console.log(error.message);
+    throw new Error("Task could not be started");
+  }
+
+  return data;
 }
