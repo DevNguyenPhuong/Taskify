@@ -47,13 +47,17 @@ function Task({ task }) {
               : status === "completed"
               ? "text-green-600"
               : "text-yellow-400"
-          } text-md py-3 text-center font-bold uppercase`}
+          } text-md py-3 text-center font-bold uppercase ${
+            status === "completed" ? " " : !timeLeftTask ? "hidden" : ""
+          }`}
         >
-          {timeLeftTask && status}
+          {status}
         </div>
 
         <div
-          className={`text-md py-3 text-center font-bold uppercase  text-red-400`}
+          className={`text-md py-3 text-center font-bold uppercase  text-red-400 ${
+            status === "completed" ? "hidden" : ""
+          }`}
         >
           {!timeLeftTask && "time out"}
         </div>
@@ -94,7 +98,7 @@ function Task({ task }) {
         <button
           disabled={isCompleting}
           className={`rounded-full p-2 hover:bg-green-200 [&_svg]:text-4xl [&_svg]:text-green-700 ${
-            !timeLeftTask ? "hidden" : " "
+            !timeLeftTask || status === "completed" ? "hidden" : " "
           }`}
           onClick={() => completed(id)}
         >
