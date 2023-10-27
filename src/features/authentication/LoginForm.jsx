@@ -1,6 +1,6 @@
 import { useState } from "react";
 import FormRowVertical from "../../ui/FormRowVertical";
-import { useLogin } from "./useLogin";
+import { useLogin, useLoginWithGit } from "./useLogin";
 import SpinnerMini from "../../ui/SpinnerMini";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +9,7 @@ function LoginForm() {
   const [password, setPassword] = useState("ayesha1234");
 
   const { login, isLoading } = useLogin();
+  const { loginWithGit, isLoadingGitLogin } = useLoginWithGit();
   const navigate = useNavigate();
 
   function handleSubmit(e) {
@@ -23,6 +24,11 @@ function LoginForm() {
         },
       },
     );
+  }
+
+  function handleLoginWithGit(e) {
+    e.preventDefault();
+    loginWithGit();
   }
 
   function handleSinup(e) {
@@ -65,6 +71,17 @@ function LoginForm() {
           {!isLoading ? "Login" : <SpinnerMini />}
         </button>
       </FormRowVertical>
+
+      <FormRowVertical>
+        <button
+          className="flex flex-col items-center bg-gray-800 px-10 py-5 text-[1.6rem] font-medium text-indigo-50 hover:bg-gray-900"
+          disabled={isLoadingGitLogin}
+          onClick={handleLoginWithGit}
+        >
+          {!isLoading ? "Login with github" : <SpinnerMini />}
+        </button>
+      </FormRowVertical>
+
       <FormRowVertical>
         <button
           className="flex flex-col items-center bg-indigo-100 px-10 py-5 text-[1.6rem] font-medium text-indigo-700 hover:bg-indigo-200"

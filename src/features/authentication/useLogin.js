@@ -1,5 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { login as loginApi } from "../../services/apiAuth";
+import { loginWithGit as loginWithGitAPI } from "../../services/apiAuth";
+
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
@@ -20,4 +22,11 @@ export function useLogin() {
     },
   });
   return { login, isLoading };
+}
+
+export function useLoginWithGit() {
+  const { mutate: loginWithGit, isLoading: isLoadingGitLogin } = useMutation({
+    mutationFn: loginWithGitAPI,
+  });
+  return { loginWithGit, isLoadingGitLogin };
 }
