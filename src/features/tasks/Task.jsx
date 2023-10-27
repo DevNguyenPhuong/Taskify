@@ -1,13 +1,9 @@
-import {
-  HiOutlineTrash,
-  HiOutlineCheck,
-  HiOutlinePlay,
-  HiOutlineArrowPath,
-} from "react-icons/hi2";
+import { HiOutlineTrash, HiOutlineCheck, HiOutlinePlay } from "react-icons/hi2";
 import TaskProgress from "./TaskProgress";
 import { useDeleteTask } from "./useDeleteTask";
 import { timeLeft } from "../../utils/utils";
-import { useUpdateTask } from "./useUpdateTask";
+import { useCompletedTask, useUpdateTask } from "./useUpdateTask";
+import { useState } from "react";
 
 function Task({ task }) {
   const {
@@ -22,10 +18,14 @@ function Task({ task }) {
 
   const { deleteTask, isDeleting } = useDeleteTask();
   const { updateTask, isUpdating } = useUpdateTask();
+  const { completed, isCompleting } = useCompletedTask();
   const timeLeftTask = timeLeft(start_at, duration);
+  const [trigger, setTrigger] = useState(0);
 
   return (
-    <li className="flex h-[30rem] w-[30rem] flex-col shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] ">
+    <li
+      className={`flex h-[30rem] w-[30rem] flex-col shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]`}
+    >
       <h3
         className={`${
           priority === "high"
@@ -45,23 +45,30 @@ function Task({ task }) {
             status === "not started"
               ? "text-red-400"
               : status === "completed"
-              ? "text-green-400"
+              ? "text-green-600"
               : "text-yellow-400"
-          } text-md py-3 text-center font-bold uppercase text-neutral-100`}
+          } text-md py-3 text-center font-bold uppercase`}
         >
-          {status}
+          {timeLeftTask && status}
+        </div>
+
+        <div
+          className={`text-md py-3 text-center font-bold uppercase  text-red-400`}
+        >
+          {!timeLeftTask && "time out"}
         </div>
       </div>
 
       <div className="px-8 text-[1.2rem]">{description}</div>
 
-      {status === "not started" ? (
-        <p className=" text-center font-bold uppercase text-red-500"></p>
-      ) : (
+      {status === "in progress" && (
         <TaskProgress
           timeLeftTask={timeLeftTask}
           duration={duration}
           start_at={start_at}
+          id={id}
+          onTrigger={setTrigger}
+          trigger={trigger}
         />
       )}
 
@@ -76,17 +83,20 @@ function Task({ task }) {
 
         <button
           disabled={isUpdating}
-          className="rounded-full p-2 hover:bg-blue-200 [&_svg]:text-4xl [&_svg]:text-blue-700"
+          className={`rounded-full p-2 hover:bg-blue-200 [&_svg]:text-4xl [&_svg]:text-blue-700 ${
+            status !== "not started" ? "hidden" : " "
+          }`}
           onClick={() => updateTask(id)}
         >
-          {status === "not started" && <HiOutlinePlay />}
-
-          <HiOutlineArrowPath />
+          <HiOutlinePlay />
         </button>
 
         <button
-          disabled={isDeleting}
-          className="rounded-full p-2 hover:bg-green-200 [&_svg]:text-4xl [&_svg]:text-green-700"
+          disabled={isCompleting}
+          className={`rounded-full p-2 hover:bg-green-200 [&_svg]:text-4xl [&_svg]:text-green-700 ${
+            !timeLeftTask ? "hidden" : " "
+          }`}
+          onClick={() => completed(id)}
         >
           <HiOutlineCheck />
         </button>

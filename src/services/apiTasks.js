@@ -1,5 +1,5 @@
-import { endOfDay, format } from "date-fns";
 import supabase from "./supabase";
+import { format } from "date-fns";
 
 export async function getTasks({ userId }) {
   // const { data, error } = await supabase.from("cabins").select("*");
@@ -62,6 +62,23 @@ export async function updateTask(id) {
   if (error) {
     console.log(error.message);
     throw new Error("Task could not be started");
+  }
+
+  return data;
+}
+
+export async function completed(id) {
+  const { data, error } = await supabase
+    .from("Task")
+    .update({
+      status: "completed",
+    })
+    .eq("id", id)
+    .select();
+
+  if (error) {
+    console.log(error.message);
+    throw new Error("Task could not be completed");
   }
 
   return data;
