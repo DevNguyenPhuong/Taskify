@@ -78,7 +78,7 @@ function LoginForm() {
           disabled={isLoadingGitLogin}
           onClick={handleLoginWithGit}
         >
-          {!isLoading ? "Login with github" : <SpinnerMini />}
+          {!isLoadingGitLogin ? "Login with github" : <SpinnerMini />}
         </button>
       </FormRowVertical>
 
