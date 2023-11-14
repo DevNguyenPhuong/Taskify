@@ -1,4 +1,4 @@
-import { differenceInSeconds, parseISO, add } from "date-fns";
+import { differenceInSeconds, parseISO, add, format } from "date-fns";
 
 export function timeLeft(startDate, duration) {
   const endDate = add(parseISO(startDate), { minutes: duration });
@@ -12,4 +12,9 @@ export function timeLeft(startDate, duration) {
   const formattedDiff = `${hours}:${minutes}:${seconds}`;
   if (hours < 0) return;
   return formattedDiff;
+}
+
+export function formatTimestamp(timestamp) {
+  const date = new Date(timestamp);
+  return format(date, "dd/MM/yyyy HH:mm");
 }

@@ -2,8 +2,6 @@ import supabase from "./supabase";
 import { format } from "date-fns";
 
 export async function getTasks({ userId }) {
-  // const { data, error } = await supabase.from("cabins").select("*");
-
   const { data, error } = await supabase
     .from("Task")
     .select("*")

@@ -10,6 +10,7 @@ import Tasks from "./pages/Tasks";
 import User from "./pages/User";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Messages from "./pages/Messages";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,6 +36,7 @@ function App() {
             <Route index element={<Navigate replace to="tasks" />} />
             <Route path="tasks" element={<Tasks />} />
             <Route path="user" element={<User />} />
+            <Route path="messages" element={<Messages />} />
           </Route>
 
           <Route path="login" element={<Login />} />
