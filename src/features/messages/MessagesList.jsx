@@ -26,7 +26,7 @@ function MessagesList() {
     //   </div>
     //   <CreateMessageForm fullName={fullName} avatar={avatar} userId={user.id} />
     // </div>
-    <div className="mt-4 flex h-[70vh] w-full flex-grow flex-col overflow-hidden rounded-lg bg-white text-2xl md:h-[70vh] md:w-full">
+    <div className="mt-4 flex h-[70vh] w-full flex-grow flex-col overflow-hidden rounded-lg bg-white text-[1rem] md:h-[70vh] md:w-full md:text-2xl">
       <div className="flex  flex-grow flex-col gap-10 overflow-auto  p-8 md:gap-12 md:overflow-auto md:p-10">
         {messages.map((message) => (
           <Message key={message.id} message={message} userId={user.id} />

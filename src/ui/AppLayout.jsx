@@ -8,7 +8,7 @@ function AppLayout() {
       <Header />
       <Sidebar />
 
-      <main className="overflow-scroll bg-gray-50 px-20 pb-24 pt-16 md:px-20 md:pb-24 md:pt-16">
+      <main className="overflow-scroll bg-gray-50 px-2 pb-4 pt-16 md:px-20 md:pb-24 md:pt-16">
         <div className="mx-auto my-0 flex max-w-[120rem] flex-col gap-12 md:max-w-[120rem] md:flex-col md:gap-12">
           <Outlet />
         </div>

@@ -12,21 +12,21 @@ function MainNav() {
         <li>
           <NavLink className="NavLink" to="/tasks">
             <HiOutlineClipboardDocumentCheck />
-            <span>My Tasks</span>
+            <span className="text-[0.8rem] md:text-[1.6rem]">My Tasks</span>
           </NavLink>
         </li>
 
         <li>
           <NavLink className="NavLink" to="/user">
             <HiOutlineUser />
-            <span>User</span>
+            <span className="text-[0.8rem] md:text-[1.6rem]">User</span>
           </NavLink>
         </li>
 
         <li>
           <NavLink className="NavLink" to="/messages">
             <HiOutlineChatBubbleLeftRight />
-            <span>Chat</span>
+            <span className="text-[0.8rem] md:text-[1.6rem]">Chat</span>
           </NavLink>
         </li>
       </ul>

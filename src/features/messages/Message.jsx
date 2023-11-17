@@ -18,7 +18,7 @@ function Message({ message, userId }) {
     return (
       <div className="ml-auto mt-2 flex items-center justify-end space-x-3 md:w-[40rem] md:max-w-[50rem]">
         <div className="flex flex-col">
-          <p className="ml-auto text-[1.2rem]">{fullName}</p>
+          <p className="ml-auto text-[0.8rem] md:text-[1.2rem]">{fullName}</p>
 
           <div className="group relative flex flex-col items-center justify-center rounded-lg bg-indigo-600 px-8 py-3 text-white">
             <p className="relative z-10">{messageInfo}</p>
@@ -51,7 +51,7 @@ function Message({ message, userId }) {
         className="h-16 w-16 flex-shrink-0 rounded-full bg-gray-300"
       ></img>
       <div className="flex flex-col">
-        <p className="text-[1.2rem]">{fullName}</p>
+        <p className="text-[0.8rem] md:text-[1.2rem]">{fullName}</p>
         <div className="rounded-lg  bg-indigo-200 px-8 py-3">
           <p>{messageInfo}</p>
         </div>
