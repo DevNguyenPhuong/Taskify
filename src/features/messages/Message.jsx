@@ -16,7 +16,7 @@ function Message({ message, userId }) {
 
   if (msgUser === userId)
     return (
-      <div className="ml-auto mt-2 flex w-[40rem] max-w-[50rem] items-center justify-end space-x-3">
+      <div className="ml-auto mt-2 flex items-center justify-end space-x-3 md:w-[40rem] md:max-w-[50rem]">
         <div className="flex flex-col">
           <p className="ml-auto text-[1.2rem]">{fullName}</p>
 
@@ -44,7 +44,7 @@ function Message({ message, userId }) {
     );
 
   return (
-    <div className="mt-2 flex w-[40rem] max-w-[50rem] items-center space-x-3 ">
+    <div className="mt-2 flex  items-center space-x-3 md:w-[40rem] md:max-w-[50rem] ">
       <img
         src={avatar}
         alt={`${fullName} avatar`}
