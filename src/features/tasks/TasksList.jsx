@@ -32,7 +32,7 @@ function TasksList() {
   return (
     <>
       {tasks.length !== 0 && (
-        <div className="flex justify-between">
+        <div className="flex flex-wrap justify-between gap-4 text-[1.2rem]  md:text-[1.6rem]">
           <DeleteAll />{" "}
           <Filter
             filterField="priority"
@@ -48,7 +48,7 @@ function TasksList() {
 
       {tasks.length === 0 ? (
         <>
-          <h3 className="mt-5 text-4xl font-semibold uppercase text-indigo-500">
+          <h3 className="mt-5 text-2xl font-semibold uppercase text-indigo-500 md:text-4xl">
             Start your day now
           </h3>
 

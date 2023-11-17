@@ -38,7 +38,7 @@ function CreateTaskForm({ onCloseModal }) {
 
   return (
     <form
-      className="flex w-[70rem] flex-col gap-6 overflow-hidden  rounded-md bg-gray-50 px-10 py-16 text-[1.4rem]"
+      className="w-20rem flex flex-col gap-6 overflow-hidden rounded-md  bg-gray-50 px-10 py-16 text-[1.4rem] md:w-[70rem]"
       onSubmit={handleSubmit(onSubmit)}
     >
       <FormRow label="Task name" error={errors?.task?.message}>

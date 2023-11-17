@@ -8,7 +8,7 @@ import {
 function MainNav() {
   return (
     <nav>
-      <ul className="flex flex-col gap-3">
+      <ul className="flex flex-col gap-1 md:gap-3">
         <li>
           <NavLink className="NavLink" to="/tasks">
             <HiOutlineClipboardDocumentCheck />

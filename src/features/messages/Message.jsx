@@ -23,7 +23,7 @@ function Message({ message, userId }) {
           <div className="group relative flex flex-col items-center justify-center rounded-lg bg-indigo-600 px-8 py-3 text-white">
             <p className="relative z-10">{messageInfo}</p>
             <button
-              className="absolute left-0 top-1/2 -translate-x-full -translate-y-1/2  transform opacity-0 transition duration-500 group-hover:opacity-100 [&_svg]:h-[3.2rem] [&_svg]:w-[3.2rem] [&_svg]:self-center [&_svg]:rounded-full [&_svg]:bg-red-300 [&_svg]:p-2 [&_svg]:text-center [&_svg]:text-red-500 [&_svg]:hover:bg-red-500 [&_svg]:hover:text-red-50"
+              className="absolute left-0 top-1/2 -translate-x-full -translate-y-1/2  transform opacity-0 transition duration-500 group-hover:opacity-100 [&_svg]:h-[2rem] [&_svg]:w-[2rem] [&_svg]:self-center [&_svg]:rounded-full [&_svg]:bg-red-300 [&_svg]:p-2 [&_svg]:text-center [&_svg]:text-red-500 [&_svg]:hover:bg-red-500 [&_svg]:hover:text-red-50 md:[&_svg]:h-[3.2rem] md:[&_svg]:w-[3.2rem]"
               onClick={() => deleteMessage(id)}
               disabled={isLoading}
             >

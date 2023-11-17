@@ -171,4 +171,11 @@ img {
   color: #4f46e5;
 }
 
+@media (max-width: 768px) {
+  .NavLink svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
 /* Styling progress bar in  My Tasks */

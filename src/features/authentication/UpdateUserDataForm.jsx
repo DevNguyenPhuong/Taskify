@@ -38,7 +38,7 @@ function UpdateUserDataForm() {
 
   return (
     <form
-      className="overflow-hidden border border-solid border-gray-200 bg-gray-50 px-16 py-10 text-[1.4rem]"
+      className="overflow-hidden border border-solid border-gray-200 bg-gray-50 px-2 py-10 text-[1rem] md:px-16 md:text-[1.4rem]"
       onSubmit={handleSubmit}
     >
       <FormRow label="Email address">
@@ -65,19 +65,19 @@ function UpdateUserDataForm() {
           onChange={(e) => setAvatar(e.target.files[0])}
           disabled={isUpdating}
           type="file"
-          className="rounded-md text-[1.4rem]  [&::file-selector-button]:mr-5 [&::file-selector-button]:cursor-pointer [&::file-selector-button]:rounded [&::file-selector-button]:border-none [&::file-selector-button]:bg-indigo-600 [&::file-selector-button]:px-3 [&::file-selector-button]:py-5 [&::file-selector-button]:font-[500] [&::file-selector-button]:text-indigo-50 [&::file-selector-button]:transition-colors [&::file-selector-button]:duration-200  [&::file-selector-button]:hover:bg-indigo-700 "
+          className="rounded-md text-[1rem] md:text-[1.4rem]  [&::file-selector-button]:mr-5 [&::file-selector-button]:cursor-pointer [&::file-selector-button]:rounded [&::file-selector-button]:border-none [&::file-selector-button]:bg-indigo-600 [&::file-selector-button]:px-3 [&::file-selector-button]:py-5 [&::file-selector-button]:font-[500] [&::file-selector-button]:text-indigo-50 [&::file-selector-button]:transition-colors [&::file-selector-button]:duration-200  [&::file-selector-button]:hover:bg-indigo-700 "
         />
       </FormRow>
       <FormRow>
         <button
           type="reset"
-          className="rounded-lg border border-solid border-gray-200 bg-gray-50 px-5 py-5 text-[1.4rem] font-[500] text-gray-600 hover:bg-gray-100"
+          className="rounded-lg border border-solid border-gray-200 bg-gray-50 px-5 py-5 text-[1rem] font-[500] text-gray-600 hover:bg-gray-100 md:text-[1.4rem]"
           disabled={isUpdating}
           onClick={handleCancel}
         >
           Cancel
         </button>
-        <button className=" rounded-lg bg-indigo-600 px-5 py-5 text-[1.4rem] font-[500] text-indigo-50 hover:bg-indigo-700">
+        <button className=" rounded-lg bg-indigo-600 px-5 py-5 text-[1rem] font-[500] text-indigo-50 hover:bg-indigo-700 md:text-[1.4rem]">
           Update account
         </button>
       </FormRow>

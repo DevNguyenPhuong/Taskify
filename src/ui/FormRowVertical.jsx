@@ -1,6 +1,6 @@
 function FormRowVertical({ label, error, children }) {
   return (
-    <div className="flex flex-col gap-3 px-0 py-5">
+    <div className="flex  flex-col gap-3 px-0 py-2 md:py-5 ">
       {label && (
         <label className="font-medium" htmlFor={children.props.id}>
           {label}

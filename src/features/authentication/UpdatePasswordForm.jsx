@@ -14,13 +14,10 @@ function UpdatePasswordForm() {
 
   return (
     <form
-      className="overflow-hidden border border-solid border-gray-200 bg-gray-50 px-10 py-16 text-[1.4rem]"
+      className="overflow-hidden border border-solid border-gray-200 bg-gray-50 px-2 py-16 text-[1rem] md:px-10 md:text-[1.4rem]"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <FormRow
-        label="New Password (min 8 chars)"
-        error={errors?.password?.message}
-      >
+      <FormRow label="New Password" error={errors?.password?.message}>
         <input
           className="rounded-md border border-solid border-gray-300 bg-gray-50 px-5 py-3 shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
           type="password"
@@ -58,12 +55,12 @@ function UpdatePasswordForm() {
         <button
           onClick={reset}
           type="reset"
-          className="rounded-lg border border-solid border-gray-200 bg-gray-50 px-5 py-5 text-[1.4rem] font-[500] text-gray-600 hover:bg-gray-100"
+          className="rounded-lg border border-solid border-gray-200 bg-gray-50 px-5 py-5 text-[1rem] font-[500]  text-gray-600 hover:bg-gray-100 md:text-[1.4rem]"
         >
           Cancel
         </button>
         <button
-          className=" rounded-lg bg-indigo-600 px-5 py-5 text-[1.4rem] font-[500] text-indigo-50 hover:bg-indigo-700"
+          className=" rounded-lg bg-indigo-600 px-5 py-5 text-[1rem] font-[500]  text-indigo-50 hover:bg-indigo-700 md:text-[1.4rem]"
           disabled={isUpdating}
         >
           Update password

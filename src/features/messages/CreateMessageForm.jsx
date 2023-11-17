@@ -19,13 +19,13 @@ function CreateMessageForm({ fullName, avatar, userId }) {
   return (
     <form className="flex" onSubmit={handleSubmit}>
       <input
-        className="flex h-20 w-full items-center rounded border-2 border-solid border-indigo-400 px-8 text-2xl focus:outline-none "
+        className="flex h-14 w-full items-center rounded border-2 border-solid border-indigo-400 px-4 text-xl focus:outline-none md:h-20 md:px-8 md:text-2xl "
         type="text"
         placeholder="Type your message…"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
-      <button className="border-none focus:outline-none [&_svg]:ml-[-5rem] [&_svg]:h-[3.2rem] [&_svg]:w-[3.2rem] [&_svg]:text-indigo-600 [&_svg]:transition-all [&_svg]:duration-300 [&_svg]:hover:scale-[1.1] [&_svg]:active:scale-95">
+      <button className="border-none focus:outline-none [&_svg]:ml-[-3rem] [&_svg]:h-[2rem] [&_svg]:w-[2rem] [&_svg]:text-indigo-600 [&_svg]:transition-all [&_svg]:duration-300 [&_svg]:hover:scale-[1.1] [&_svg]:active:scale-95 md:[&_svg]:ml-[-5rem] md:[&_svg]:h-[3.2rem] md:[&_svg]:w-[3.2rem]">
         <HiOutlinePaperAirplane />
       </button>
     </form>

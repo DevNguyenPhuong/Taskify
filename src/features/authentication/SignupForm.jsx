@@ -23,7 +23,7 @@ function SignupForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="overflow-hidden rounded-md border border-solid border-gray-200 bg-gray-50 px-10 py-16 text-[1.4rem]"
+      className="overflow-hidden rounded-md border border-solid border-gray-200 bg-gray-50 px-10 py-16 text-[1rem] md:text-[1.4rem]"
     >
       <FormRowVertical label="Full name" error={errors?.fullName?.message}>
         <input
@@ -93,19 +93,19 @@ function SignupForm() {
           type="reset"
           disabled={isLoading}
           onClick={reset}
-          className="rounded-lg border border-solid border-gray-200 bg-gray-50 px-5 py-5 text-[1.4rem] font-[500] text-gray-600 hover:bg-gray-100"
+          className="rounded-lg border border-solid border-gray-200 bg-gray-50 px-5 py-2 text-[1rem] font-[500] text-gray-600 hover:bg-gray-100 md:px-10 md:py-5 md:text-[1.6rem]"
         >
           Cancel
         </button>
         <button
-          className="flex flex-col items-center bg-indigo-600 px-10 py-5 text-[1.6rem] font-medium text-indigo-50 hover:bg-indigo-500"
+          className="flex flex-col items-center bg-indigo-600 px-5 py-2 text-[1rem] font-medium text-indigo-50 hover:bg-indigo-500 md:px-10 md:py-5 md:text-[1.6rem]"
           disabled={isLoading}
         >
           Create an account
         </button>
 
         <button
-          className="flex flex-col items-center bg-indigo-100 px-10 py-5 text-[1.6rem] font-medium text-indigo-700 hover:bg-indigo-200"
+          className="flex flex-col items-center bg-indigo-100 px-5 py-2 text-[1rem] font-medium text-indigo-700 hover:bg-indigo-200 md:px-10 md:py-5 md:text-[1.6rem]"
           disabled={isLoading}
           onClick={() => navigate(-1)}
         >

@@ -39,7 +39,7 @@ function LoginForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="overflow-hidden rounded-md border border-solid border-gray-200 bg-gray-50 px-10 py-16 text-[1.4rem]"
+      className=" overflow-hidden rounded-md border border-solid border-gray-200 bg-gray-50 px-10 py-16 text-[1rem] md:text-[1.4rem]"
     >
       <FormRowVertical label="Email address">
         <input
@@ -65,7 +65,7 @@ function LoginForm() {
       </FormRowVertical>
       <FormRowVertical>
         <button
-          className="flex flex-col items-center bg-indigo-600 px-10 py-5 text-[1.6rem] font-medium text-indigo-50 hover:bg-indigo-500"
+          className="flex flex-col items-center bg-indigo-600 px-5 py-2 text-[1rem] font-medium text-indigo-50 hover:bg-indigo-500 md:px-10 md:py-5 md:text-[1.6rem]"
           disabled={isLoading}
         >
           {!isLoading ? "Login" : <SpinnerMini />}
@@ -74,7 +74,7 @@ function LoginForm() {
 
       <FormRowVertical>
         <button
-          className="flex flex-col items-center bg-gray-800 px-10 py-5 text-[1.6rem] font-medium text-indigo-50 hover:bg-gray-900"
+          className="flex flex-col items-center bg-gray-800 px-5 py-2 text-[1rem] font-medium text-indigo-50 hover:bg-gray-900 md:px-10 md:py-5 md:text-[1.6rem]"
           disabled={isLoadingGitLogin}
           onClick={handleLoginWithGit}
         >
@@ -84,7 +84,7 @@ function LoginForm() {
 
       <FormRowVertical>
         <button
-          className="flex flex-col items-center bg-indigo-100 px-10 py-5 text-[1.6rem] font-medium text-indigo-700 hover:bg-indigo-200"
+          className="flex flex-col items-center bg-indigo-100 px-5 py-2 text-[1rem] font-medium text-indigo-700 hover:bg-indigo-200 md:px-10 md:py-5 md:text-[1.6rem] "
           disabled={isLoading}
           onClick={handleSinup}
         >
