@@ -1,33 +1,14 @@
 import { useForm } from "react-hook-form";
-// import { useMutation, useQueryClient } from "@tanstack/react-query";
-// import { toast } from "react-hot-toast";
-
-// import { CreateTask } from "../../services/apiTasks";
 import FormRow from "../../ui/FormRow";
 import { useUser } from "../authentication/useUser";
 import { useCreateTask } from "./useCreateTask";
 
 function CreateTaskForm({ onCloseModal }) {
   const { register, handleSubmit, reset, formState } = useForm();
-  // const queryClient = useQueryClient();
   const { user } = useUser();
   const { errors } = formState;
 
   const { isCreating, createTask } = useCreateTask(onCloseModal, reset);
-  // const { mutate, isLoading: isCreating } = useMutation({
-  //   mutationFn: CreateTask,
-  //   onSuccess: () => {
-  //     toast.success("Task created");
-  //     queryClient.invalidateQueries({
-  //       queryKey: ["tasks"],
-  //     });
-  //     reset();
-  //     onCloseModal();
-  //   },
-  //   onError: (err) => {
-  //     toast.error(err.message);
-  //   },
-  // });
 
   function onSubmit(data) {
     createTask({

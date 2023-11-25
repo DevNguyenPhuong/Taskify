@@ -27,6 +27,9 @@ export function useMessages(user) {
           payload.eventType === "DELETE" &&
             toast.error("Someone unsent a message !");
 
+          payload.eventType === "UPDATE" &&
+            toast.error("Someone recalled a message !");
+
           if (payload.eventType === "INSERT")
             if (user.id !== payload.new.user)
               toast.success("New message received !");

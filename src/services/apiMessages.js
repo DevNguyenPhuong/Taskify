@@ -1,18 +1,9 @@
 import supabase from "./supabase";
 
 export async function getMessages() {
-  const { count } = await supabase
-    .from("Messages")
-    .select("*", { count: "exact", head: true });
-  const start = count > 20 ? count - 20 : 0;
-
-  const { data, error } = await supabase
-    .from("Messages")
-    .select("*")
-    .range(start, count - 1);
-
+  let { data, error } = await supabase.from("Messages").select("*");
   if (error) throw new Error("Messages could not be loaded");
-
+  data.sort((a, b) => a.id - b.id);
   return data;
 }
 
@@ -37,4 +28,19 @@ export async function deleteMesage(id) {
     console.log(error.message);
     throw new Error("Message could not be deleted");
   }
+}
+
+export async function updateMesage(id) {
+  let { data, error } = await supabase
+    .from("Messages")
+    .update({ isRecall: true })
+    .eq("id", id)
+    .select();
+
+  if (error) {
+    console.log(error.message);
+    throw new Error("Message could not be recalled");
+  }
+
+  return data;
 }
